@@ -24,5 +24,7 @@ yarn-error.log*
 
 /api/__pycache__
 /api/migrations
-/data
 /deeplearning/__pycache__
+/data/mnist
+/data/handwritting.model
+/data/images
