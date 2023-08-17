@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+// import React, { useState } from 'react'
 
 // already set the proxy to http://localhost:8000 in package.json
 const url="http://localhost:8000/image/" // don't forget the last "/"

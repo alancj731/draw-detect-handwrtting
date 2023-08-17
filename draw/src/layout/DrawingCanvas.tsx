@@ -29,7 +29,7 @@ const DrawingCanvas = ({setResult}: Props) => {
     const { offsetX, offsetY } = event.nativeEvent;
     const context = contextRef.current;
     context.strokeStyle = "black";
-    context.lineWidth = 2;
+    context.lineWidth = 3;
     context.lineCap = "round";
 
     context.beginPath();

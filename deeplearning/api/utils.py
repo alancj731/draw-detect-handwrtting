@@ -11,7 +11,7 @@ def predict(target_image):
     # print(modelFile)
     
     # show target_image
-    modelFile = os.path.join(settings.DATA_ROOT, 'handwritting.model')
+    modelFile = os.path.join("C:\\Users\\alanc\\OneDrive\\codes\\Machine Learning\\NN", 'hwmodel')
     model = tf.keras.models.load_model(modelFile)
     #print(f'model is {model}')
     prediction = model.predict(target_image)

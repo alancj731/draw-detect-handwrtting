@@ -50,9 +50,9 @@ const imgTo2DArray = (imageData: ImageData, height: number, width: number) => {
     var row = [];
     for (let x = 0; x < width; x++) {
       const pixelIndex = (y * width + x) * 4
-      const red = pixelArray[pixelIndex]
-      const green = pixelArray[pixelIndex + 1]
-      const blue = pixelArray[pixelIndex + 2]
+    //   const red = pixelArray[pixelIndex]
+    //   const green = pixelArray[pixelIndex + 1]
+    //   const blue = pixelArray[pixelIndex + 2]
       const grayscale = pixelArray[pixelIndex + 3]
       // because red, green and blue are all 0 in black and white mode
       // only push grayscale to pixel2DArray
@@ -65,28 +65,28 @@ const imgTo2DArray = (imageData: ImageData, height: number, width: number) => {
   return pixel2DArray;
 };
 
-const imgToBlackWhite = (imageData: ImageData) => {
-  const pixelArray = imageData.data;
-  const bwPixelArray = new Uint8ClampedArray(pixelArray.length);
-//   console.log("pixelArray in b&w before:", pixelArray);
-//   var count = 0;
+// const imgToBlackWhite = (imageData: ImageData) => {
+//   const pixelArray = imageData.data;
+//   const bwPixelArray = new Uint8ClampedArray(pixelArray.length);
+// //   console.log("pixelArray in b&w before:", pixelArray);
+// //   var count = 0;
 
-  for (let i = 0; i < pixelArray.length; i += 4) {
-    // Calculate grayscale value
-    const red = pixelArray[i]; // in black white drawing, the value here is 0
-    const green = pixelArray[i + 1]; // in black white drawing, the value here is 0
-    const blue = pixelArray[i + 2]; // in black white drawing, the value here is 0
-    const gray = pixelArray[i + 3]; // not zero
-    const grayscale = (red + green + blue) / 3;
-    //const grayscale = 0;
-    // if(gray !== 0 && count < 3) {
-    //     console.log("(", i, ":", i+3, ")",red, green, blue, gray)
-    //     count += 1
-    // }
-    pixelArray[i] = grayscale; // still get zero here if original image is black and white
-    pixelArray[i + 1] = grayscale; // still get zero here if original image is black and white
-    pixelArray[i + 2] = grayscale; // still get zero here if original image is black and white
-  }
-//   console.log("pixelArray in b&w after:", pixelArray);
-  // return bwPixelArray
-};
+//   for (let i = 0; i < pixelArray.length; i += 4) {
+//     // Calculate grayscale value
+//     const red = pixelArray[i]; // in black white drawing, the value here is 0
+//     const green = pixelArray[i + 1]; // in black white drawing, the value here is 0
+//     const blue = pixelArray[i + 2]; // in black white drawing, the value here is 0
+//     const gray = pixelArray[i + 3]; // not zero
+//     const grayscale = (red + green + blue) / 3;
+//     //const grayscale = 0;
+//     // if(gray !== 0 && count < 3) {
+//     //     console.log("(", i, ":", i+3, ")",red, green, blue, gray)
+//     //     count += 1
+//     // }
+//     pixelArray[i] = grayscale; // still get zero here if original image is black and white
+//     pixelArray[i + 1] = grayscale; // still get zero here if original image is black and white
+//     pixelArray[i + 2] = grayscale; // still get zero here if original image is black and white
+//   }
+// //   console.log("pixelArray in b&w after:", pixelArray);
+//   // return bwPixelArray
+// };
