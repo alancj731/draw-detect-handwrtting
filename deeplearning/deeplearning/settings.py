@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'api.apps.ApiConfig',
     'rest_framework',
+    'corsheaders', # added for cors
 ]
 
 MIDDLEWARE = [
@@ -51,9 +52,15 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware', # added for cors
+    'django.middleware.common.CommonMiddleware', # added for cors
 ]
 
 ROOT_URLCONF = 'deeplearning.urls'
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",  # The origin where your frontend is running
+]
 
 TEMPLATES = [
     {

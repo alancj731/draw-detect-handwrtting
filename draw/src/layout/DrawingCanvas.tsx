@@ -2,7 +2,11 @@ import React, { useRef, useState } from "react";
 import { Button, Container, Icon } from "semantic-ui-react";
 import {saveCanvasUtil, recogCanvasUtil} from "../utils/DrawUtils"
 
-const DrawingCanvas = () => {
+interface Props {
+  setResult: React.Dispatch<React.SetStateAction<string>>
+}
+
+const DrawingCanvas = ({setResult}: Props) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [isDrawing, setIsDrawing] = useState(false);
   const contextRef = useRef<CanvasRenderingContext2D | null>(null);
@@ -25,7 +29,7 @@ const DrawingCanvas = () => {
     const { offsetX, offsetY } = event.nativeEvent;
     const context = contextRef.current;
     context.strokeStyle = "black";
-    context.lineWidth = 1;
+    context.lineWidth = 2;
     context.lineCap = "round";
 
     context.beginPath();
@@ -49,8 +53,11 @@ const DrawingCanvas = () => {
     }
   };
 
-  const recogCanvas = () => {
-    recogCanvasUtil(canvasRef.current, contextRef.current)
+  const recogCanvas = async () => {
+    const responseData = await recogCanvasUtil(canvasRef.current, contextRef.current)
+    const result = String(responseData.result)
+    // console.log("recogCanvasUtil returned:", typeof(responseData.result), responseData.result)
+    setResult(result)
   };
 
   
