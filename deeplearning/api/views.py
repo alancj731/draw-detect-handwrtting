@@ -15,12 +15,10 @@ def index(request):
 
 @csrf_exempt
 def HandelDataPost(request):
-    print('visited here')
     if request.method == 'POST':
         image = get_image_from_request(request)
         input_image = prepare_input(image)
         prediction = predict(input_image)
-        print("to return:", prediction, type(prediction))
         return JsonResponse({'result': prediction})
     else:
         return JsonResponse({'error': 'Only POST requests are allowed'})
